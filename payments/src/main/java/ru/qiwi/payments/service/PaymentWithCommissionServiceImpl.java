@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.qiwi.payments.dataprovider.PaymentsDataProvider;
 import ru.qiwi.payments.dto.Payment;
 import ru.qiwi.payments.dto.PaymentWithCommission;
+import java.util.Arrays;
 
 @Service
 public class PaymentWithCommissionServiceImpl implements PaymentService {
@@ -16,11 +17,10 @@ public class PaymentWithCommissionServiceImpl implements PaymentService {
 
     @Override
     public int getTotalSum() {
-        return 0;
+        return Arrays.stream(paymentsDataProvider.getPaymentWithCommission()).mapToInt(payment -> payment.getAmount() + payment.getCommission()).sum();
     }
     @Override
     public int getPaymentsCount() {
-        return 0;
+        return (int)Arrays.stream(paymentsDataProvider.getPaymentWithCommission()).count();
     }
-    // TODO
 }
