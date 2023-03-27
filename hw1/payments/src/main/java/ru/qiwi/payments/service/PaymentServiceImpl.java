@@ -2,10 +2,10 @@ package ru.qiwi.payments.service;
 
 import org.springframework.stereotype.Service;
 import ru.qiwi.payments.dataprovider.PaymentsDataProvider;
-import java.util.Arrays;
+import ru.qiwi.payments.dto.Payment;
 
 @Service
-public class PaymentServiceImpl extends PaymentAbstractServiceImpl {
+public class PaymentServiceImpl implements PaymentService {
 
     private PaymentsDataProvider paymentsDataProvider;
 
@@ -21,4 +21,5 @@ public class PaymentServiceImpl extends PaymentAbstractServiceImpl {
         return super.getPaymentsCount(paymentsDataProvider.getPayments());
     }
 
+    // TODO
 }

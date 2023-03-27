@@ -4,10 +4,9 @@ import org.springframework.stereotype.Service;
 import ru.qiwi.payments.dataprovider.PaymentsDataProvider;
 import ru.qiwi.payments.dto.Payment;
 import ru.qiwi.payments.dto.PaymentWithCommission;
-import java.util.Arrays;
 
 @Service
-public class PaymentWithCommissionServiceImpl extends PaymentAbstractServiceImpl {
+public class PaymentWithCommissionServiceImpl implements PaymentService {
 
     private PaymentsDataProvider paymentsDataProvider;
 
@@ -17,10 +16,11 @@ public class PaymentWithCommissionServiceImpl extends PaymentAbstractServiceImpl
 
     @Override
     public int getTotalSum() {
-        return super.getTotalSum(paymentsDataProvider.getPaymentWithCommission());
+        return 0;
     }
     @Override
     public int getPaymentsCount() {
-        return super.getPaymentsCount(paymentsDataProvider.getPaymentWithCommission());
+        return 0;
     }
+    // TODO
 }
