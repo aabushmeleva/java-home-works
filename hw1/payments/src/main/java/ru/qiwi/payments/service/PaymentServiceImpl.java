@@ -2,7 +2,8 @@ package ru.qiwi.payments.service;
 
 import org.springframework.stereotype.Service;
 import ru.qiwi.payments.dataprovider.PaymentsDataProvider;
-import ru.qiwi.payments.dto.Payment;
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -14,12 +15,11 @@ public class PaymentServiceImpl implements PaymentService {
     }
     @Override
     public int getTotalSum() {
-        return super.getTotalSum(paymentsDataProvider.getPayments());
+        return Arrays.stream(paymentsDataProvider.getPayments()).mapToInt(payment -> payment.getAmount()).sum();
     }
     @Override
     public int getPaymentsCount() {
-        return super.getPaymentsCount(paymentsDataProvider.getPayments());
+        return (int)Arrays.stream(paymentsDataProvider.getPayments()).count();
     }
 
-    // TODO
 }
