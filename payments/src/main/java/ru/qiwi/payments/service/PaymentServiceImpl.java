@@ -12,6 +12,13 @@ public class PaymentServiceImpl implements PaymentService {
     public PaymentServiceImpl(PaymentsDataProvider paymentsDataProvider) {
         this.paymentsDataProvider = paymentsDataProvider;
     }
+    @Override
+    public int getTotalSum() {
+        return 0;
+    }
+    @Override
+    public int getPaymentsCount() {
+        return 0;
+    }
 
-    // TODO
 }
