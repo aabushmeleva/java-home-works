@@ -14,5 +14,13 @@ public class PaymentWithCommissionServiceImpl implements PaymentService {
         this.paymentsDataProvider = paymentsDataProvider;
     }
 
+    @Override
+    public int getTotalSum() {
+        return 0;
+    }
+    @Override
+    public int getPaymentsCount() {
+        return 0;
+    }
     // TODO
 }
