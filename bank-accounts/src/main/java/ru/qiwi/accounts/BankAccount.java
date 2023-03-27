@@ -3,7 +3,7 @@ package ru.qiwi.accounts;
 public abstract class BankAccount {
 
     private double balance;
-
+    
     public BankAccount(double balance) {
         this.balance = balance;
     }
