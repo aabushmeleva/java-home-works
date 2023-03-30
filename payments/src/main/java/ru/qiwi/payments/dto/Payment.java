@@ -10,4 +10,8 @@ public class Payment {
     public int getAmount() {
         return amount;
     }
+
+    public int getTotalSum() {
+        return amount;
+    }
 }
