@@ -7,7 +7,7 @@ import ru.qiwi.payments.dto.PaymentWithCommission;
 import java.util.Arrays;
 
 @Service
-public class PaymentWithCommissionServiceImpl implements PaymentService {
+public class PaymentWithCommissionServiceImpl extends PaymentAbstractServiceImpl {
 
     private PaymentsDataProvider paymentsDataProvider;
 
@@ -17,10 +17,10 @@ public class PaymentWithCommissionServiceImpl implements PaymentService {
 
     @Override
     public int getTotalSum() {
-        return Arrays.stream(paymentsDataProvider.getPaymentWithCommission()).mapToInt(payment -> payment.getAmount() + payment.getCommission()).sum();
+        return super.getTotalSum(paymentsDataProvider.getPaymentWithCommission());
     }
     @Override
     public int getPaymentsCount() {
-        return (int)Arrays.stream(paymentsDataProvider.getPaymentWithCommission()).count();
+        return super.getPaymentsCount(paymentsDataProvider.getPaymentWithCommission());
     }
 }

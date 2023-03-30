@@ -34,7 +34,7 @@ public class PaymentServiceTest {
     void getSumWithCommisionTest() {
         Mockito.when(paymentsDataProvider.getPayments())
                 .thenReturn(new Payment[]{
-                        new PaymentWithCommission(1, 1),
+                        new Payment(1),
                         new Payment(4)
                 });
         Assertions.assertEquals(paymentService.getTotalSum(), 5);
