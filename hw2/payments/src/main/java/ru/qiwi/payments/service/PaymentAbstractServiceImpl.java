@@ -1,16 +1,21 @@
 package ru.qiwi.payments.service;
 
-import ru.qiwi.payments.dto.Payment;
 import java.util.Arrays;
+import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
-public abstract class PaymentAbstractServiceImpl implements PaymentService {
+public abstract class PaymentAbstractServiceImpl<T> implements PaymentService {
+    public Supplier<T[]> paymentsArray;
+    public ToIntFunction<T> totalSumFunction;
 
-    public int getTotalSum(Payment[] payments) {
-        return Arrays.stream(payments).mapToInt(payment -> payment.getTotalSum()).sum();
+    public int getTotalSum() {
+        return Arrays.stream(paymentsArray.get())
+                .mapToInt(totalSumFunction)
+                .sum();
     }
 
-    public int getPaymentsCount(Payment[] payments) {
-        return (int) Arrays.stream(payments).count();
+    public int getPaymentsCount() {
+        return (int) Arrays.stream(paymentsArray.get()).count();
     }
 
 }

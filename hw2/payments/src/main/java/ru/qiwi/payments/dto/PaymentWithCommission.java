@@ -14,6 +14,6 @@ public class PaymentWithCommission extends Payment {
     }
 
     public int getTotalSum() {
-        return super.getAmount() + commission;
+        return super.getAmount() + getCommission();
     }
 }
