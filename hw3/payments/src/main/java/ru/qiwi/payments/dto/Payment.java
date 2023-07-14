@@ -68,7 +68,13 @@ public class Payment {
         return commission;
     }
 
+    public double getTotalSum() {
+        return  amount + commission;
+    }
+
     public MerchantType getMerchantType() {
         return merchantType;
     }
 }
+
+
